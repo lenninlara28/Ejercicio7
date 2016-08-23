@@ -103,7 +103,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsultarActionPerformed
         String bono,sueldo;
-        int monto,años,bonificacion,total;
+        int monto,años,bonificacion = 0,total;
         monto=Integer.parseInt(TxtSueldo.getText());
         años=Integer.parseInt(txtAños.getText());
         
@@ -114,6 +114,13 @@ public class Principal extends javax.swing.JFrame {
         else{
             total=monto;
         }
+        
+        bono=String.valueOf(bonificacion);
+        txtBono.setText(bono);
+        
+        sueldo=String.valueOf(total);
+        txtTotal.setText(sueldo);
+        
         
     }//GEN-LAST:event_cmbConsultarActionPerformed
 
