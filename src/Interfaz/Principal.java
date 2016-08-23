@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,6 +55,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setText("Ingrese Su Sueldo");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
+        TxtSueldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActionListener(evt);
+            }
+        });
         TxtSueldo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtSueldoKeyTyped(evt);
@@ -65,6 +71,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel3.setText("Ingrese Cuantos Años Lleva En La Empresa ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
+        txtAños.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActionListener(evt);
+            }
+        });
         txtAños.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAñosKeyTyped(evt);
@@ -97,6 +108,11 @@ public class Principal extends javax.swing.JFrame {
 
         cmbNueva.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         cmbNueva.setText("Nueva Consulta");
+        cmbNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNuevaActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmbNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,6 +177,18 @@ public class Principal extends javax.swing.JFrame {
               getToolkit().beep(); 
               evt.consume();}
     }//GEN-LAST:event_txtAñosKeyTyped
+
+    private void cmbNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNuevaActionPerformed
+        TxtSueldo.setText("");
+        txtAños.setText("");
+        txtBono.setText("");
+        txtTotal.setText("");
+        TxtSueldo.requestFocusInWindow();
+    }//GEN-LAST:event_cmbNuevaActionPerformed
+
+    private void ActionListener(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActionListener
+        ((JComponent) evt.getSource()).transferFocus();
+    }//GEN-LAST:event_ActionListener
 
     /**
      * @param args the command line arguments
