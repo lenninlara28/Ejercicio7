@@ -60,6 +60,11 @@ public class Principal extends javax.swing.JFrame {
 
         cmbConsultar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmbConsultar.setText("Consultar");
+        cmbConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbConsultarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmbConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -95,6 +100,22 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsultarActionPerformed
+        String bono,sueldo;
+        int monto,años,bonificacion,total;
+        monto=Integer.parseInt(TxtSueldo.getText());
+        años=Integer.parseInt(txtAños.getText());
+        
+        if (años>=1){
+            bonificacion=((años-1)*120000)+100000;
+            total=monto+bonificacion;
+        }
+        else{
+            total=monto;
+        }
+        
+    }//GEN-LAST:event_cmbConsultarActionPerformed
 
     /**
      * @param args the command line arguments
