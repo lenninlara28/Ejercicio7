@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hp 14
@@ -51,11 +53,23 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Ingrese Su Sueldo");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        TxtSueldo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtSueldoKeyTyped(evt);
+            }
+        });
         jPanel1.add(TxtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Ingrese Cuantos Años Lleva En La Empresa ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
+
+        txtAños.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAñosKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtAños, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 150, -1));
 
         cmbConsultar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -104,6 +118,14 @@ public class Principal extends javax.swing.JFrame {
     private void cmbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsultarActionPerformed
         String bono,sueldo;
         int monto,años,bonificacion = 0,total;
+        
+        if (TxtSueldo.getText().trim().isEmpty()){
+         JOptionPane.showMessageDialog(this,"Digite su sueldo","error", JOptionPane.ERROR_MESSAGE);
+         TxtSueldo.requestFocusInWindow();}
+        if (txtAños.getText().trim().isEmpty()){
+         JOptionPane.showMessageDialog(this,"Digite La Antigüedad","error", JOptionPane.ERROR_MESSAGE);
+         txtAños.requestFocusInWindow();}
+        else{
         monto=Integer.parseInt(TxtSueldo.getText());
         años=Integer.parseInt(txtAños.getText());
         
@@ -121,8 +143,24 @@ public class Principal extends javax.swing.JFrame {
         sueldo=String.valueOf(total);
         txtTotal.setText(sueldo);
         
-        
+        }
     }//GEN-LAST:event_cmbConsultarActionPerformed
+
+    private void TxtSueldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtSueldoKeyTyped
+        char c=evt.getKeyChar(); 
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_TxtSueldoKeyTyped
+
+    private void txtAñosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAñosKeyTyped
+        char c=evt.getKeyChar(); 
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_txtAñosKeyTyped
 
     /**
      * @param args the command line arguments
